@@ -36,6 +36,9 @@ class CustomData:
         Age: int,
         Tenure: int,
         Balance: int,
+        NumOfProducts:int,
+        HasCrCard:int,
+        IsActiveMember:int,
         EstimatedSalary: int):
 
         self.Gender = Gender
@@ -44,6 +47,9 @@ class CustomData:
         self.Age = Age
         self.Tenure = Tenure
         self.Balance = Balance
+        self.NumOfProducts=NumOfProducts
+        self.HasCrCard=HasCrCard
+        self.IsActiveMember=IsActiveMember
         self.EstimatedSalary = EstimatedSalary
 
     def get_data_as_data_frame(self):
@@ -55,6 +61,9 @@ class CustomData:
                 "Age": [self.Age],
                 "Tenure": [self.Tenure],
                 "Balance": [self.Balance],
+                "NumOfProducts": [self.NumOfProducts],
+                "HasCrCard": [self.HasCrCard],
+                "IsActiveMember": [self.IsActiveMember],
                 "EstimatedSalary": [self.EstimatedSalary],
             }
 

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Exit Prediction</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Customer Exit Prediction</h2>
+        <form action="/predict" method="POST">
+            <div class="input-field">
+                <label for="Geography">Geography</label>
+                <input type="text" id="Geography" name="Geography" required>
+            </div>
+            <div class="input-field">
+                <label for="Gender">Gender</label>
+                <input type="text" id="Gender" name="Gender" required>
+            </div>
+            <div class="input-field">
+                <label for="CreditScore">Credit Score</label>
+                <input type="number" step="any" id="CreditScore" name="CreditScore" required>
+            </div>
+            <div class="input-field">
+                <label for="Age">Age</label>
+                <input type="number" id="Age" name="Age" required>
+            </div>
+            <div class="input-field">
+                <label for="Tenure">Tenure (1 min, 7 max)</label>
+                <input type="number" id="Tenure" name="Tenure" required>
+            </div>
+            <div class="input-field">
+                <label for="Balance">Balance</label>
+                <input type="number" step="any" id="Balance" name="Balance" required>
+            </div>
+            <div class="input-field">
+                <label for="NumOfProducts">Number of Products (1 min,4 max)</label>
+                <input type="number" id="NumOfProducts" name="NumOfProducts" required>
+            </div>
+            <div class="input-field">
+                <label for="HasCrCard">Has Credit Card? (1 for Yes, 0 for No)</label>
+                <input type="number" id="HasCrCard" name="HasCrCard" required>
+            </div>
+            <div class="input-field">
+                <label for="IsActiveMember">Is Active Member? (1 for Yes, 0 for No)</label>
+                <input type="number" id="IsActiveMember" name="IsActiveMember" required>
+            </div>
+            <div class="input-field">
+                <label for="EstimatedSalary">Estimated Salary</label>
+                <input type="number" step="any" id="EstimatedSalary" name="EstimatedSalary" required>
+            </div>
+            <button class="btn waves-effect waves-light" type="submit">Submit</button>
+        </form>
+        <h4>{{ prediction_text }}</h4>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>

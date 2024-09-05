@@ -28,7 +28,7 @@ class DataTransformation:
     def get_data_transformer_object(self):
         try:
             
-            numerical_columns = ['CreditScore', 'Balance', 'Age', 'EstimatedSalary']
+            numerical_columns = ["CreditScore", "Tenure","Balance", "Age", "EstimatedSalary"]
             categorical_columns = [
                 "Gender",
                 "Geography",
@@ -82,8 +82,7 @@ class DataTransformation:
             preprocessing_obj=self.get_data_transformer_object()
 
             target_column_name="Exited"
-            numerical_columns = ['CreditScore', 'Balance', 'Age', 'EstimatedSalary']
-
+            
             input_feature_train_df=train_df.drop(columns=[target_column_name],axis=1)
             target_feature_train_df=train_df[target_column_name]
 
@@ -96,17 +95,23 @@ class DataTransformation:
 
             input_feature_train_arr=preprocessing_obj.fit_transform(input_feature_train_df)
             input_feature_test_arr=preprocessing_obj.transform(input_feature_test_df)
-            """
+            
             # Apply SMOTE to the training data only
             logging.info(f"Applying SMOTE to the training data to handle imbalance.")
             smote = SMOTE(random_state=42)
+            
             input_feature_train_arr, target_feature_train_df = smote.fit_resample(
                 input_feature_train_arr, target_feature_train_df
             )
-            """
+            
             train_arr = np.c_[
                 input_feature_train_arr, np.array(target_feature_train_df)
             ]
+            logging.info(f"Applying SMOTE to the testing data to handle imbalance.")
+            
+            input_feature_test_arr, target_feature_test_df = smote.fit_resample(
+                input_feature_test_arr, target_feature_test_df)
+            
             test_arr = np.c_[input_feature_test_arr, np.array(target_feature_test_df)]
 
             logging.info(f"Saved preprocessing object.")
