@@ -1,1 +1,1 @@
-# E2E_DLproject_ANN
+# E2E_project_2- Churn Modelling and Prediction
