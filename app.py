@@ -41,7 +41,7 @@ def predict_datapoint():
         # Load prediction pipeline and predict
         predict_pipeline = PredictPipeline()
         results = predict_pipeline.predict(pred_df)
-        print(results)
+    
         # Interpret the prediction result
         if results[0] == 1:
             result = "Exited"
