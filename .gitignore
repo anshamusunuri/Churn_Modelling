@@ -156,6 +156,8 @@ cython_debug/
 # folder
 .notebook
 notebook/
+.artifacts
+artifacts/
 
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
