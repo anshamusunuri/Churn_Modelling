@@ -11,4 +11,6 @@ imbalanced-learn
 tensorflow
 tensorboard
 streamlit
+scikeras
+
 -e .
